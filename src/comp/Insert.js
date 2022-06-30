@@ -5,8 +5,12 @@ export default function Insert() {
   const dispatch = useDispatch();
   const [name, setname] = React.useState('');
   const insert = () => {
-    let payload = [...state.a, name];
-    dispatch({ type: 'insert', payload });
+    const condtition1 = state?.a?.some((x) => x === name?.trim()) === false;
+    const condtition2 = name?.trim();
+    if (condtition1 && condtition2) {
+      let payload = [...state.a, name?.trim()];
+      dispatch({ type: 'insert', payload });
+    }
   };
   const handleChange = (e) => {
     let { value } = e.target;
