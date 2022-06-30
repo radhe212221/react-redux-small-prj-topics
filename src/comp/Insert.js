@@ -11,6 +11,7 @@ export default function Insert() {
     if (condtition1 && condtition2) {
       let payload = [...state.a, name?.trim()];
       dispatch({ type: 'insert', payload });
+      setname('');
     }
 
     ref.current.focus();
